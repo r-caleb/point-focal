@@ -302,7 +302,7 @@ export default function Dashboard() {
                         <img
                           src={
                             user?.picture
-                              ? `${process.env.NEXT_PUBLIC_DEV_API_URL}${user?.picture}`
+                              ? `${user?.picture}`
                               : "/images/unknown.png"
                           }
                           alt={user.firstname}
