@@ -61,33 +61,48 @@ export default function SideBar({ sidebar, handleToggleSidebar }) {
 
         <hr />
 
-        <div className="flex flex-col items-center justify-start w-full gap-4 my-4 px-2 text-center">
-          <div className="rounded-full h-fit text-2xl max-md:text-lg border border-[#E3E3F0] p-1.5  hover:border-app-blue flex items-center font-medium mx-1.5">
-            {user?.picture ? (
-              <Image
-                src={`${user?.picture}`}
-                width={130} // Largeur souhaitée
-                height={130} // Hauteur souhaitée
-                alt="Photo de profil"
-                className="group-hover:opacity-40 object-cover h-[52px] w-[52px] rounded-full"
-              />
-            ) : (
-              <FiUser size={35} className="text-[#b8b8b8]" />
-            )}
+        {!user ? (
+          <div className="flex flex-col items-center justify-start w-full gap-4 my-4 px-2 text-center animate-pulse">
+            {/* Avatar */}
+            <div className="rounded-full border border-[#E3E3F0] p-1.5">
+              <div className="h-[52px] w-[52px] bg-gray-300 rounded-full"></div>
+            </div>
+
+            {/* Nom */}
+            <div className="h-4 w-32 bg-gray-300 rounded"></div>
+
+            {/* Rôle */}
+            <div className="h-4 w-24 bg-gray-300 rounded"></div>
           </div>
-          <p className="text-[15px] font-medium text-app-dark">
-            {user ? user?.firstname : "---"}
-            <span> {user?.lastname} </span>
-            <span> {user?.middlename} </span>
-          </p>
-          <p className="text-[14px] text-app-dark border border-[#E3E3F0] px-7 py-1 rounded-sm">
-            {user?.role == "admin"
-              ? "Administrateur"
-              : user?.role == "cabinet"
-              ? "Cabinet"
-              : "SG"}
-          </p>
-        </div>
+        ) : (
+          <div className="flex flex-col items-center justify-start w-full gap-4 my-4 px-2 text-center">
+            <div className="rounded-full h-fit text-2xl max-md:text-lg border border-[#E3E3F0] p-1.5  hover:border-app-blue flex items-center font-medium mx-1.5">
+              {user?.picture ? (
+                <Image
+                  src={`${user?.picture}`}
+                  width={130} // Largeur souhaitée
+                  height={130} // Hauteur souhaitée
+                  alt="Photo de profil"
+                  className="group-hover:opacity-40 object-cover h-[52px] w-[52px] rounded-full"
+                />
+              ) : (
+                <FiUser size={35} className="text-[#b8b8b8]" />
+              )}
+            </div>
+            <p className="text-[15px] font-medium text-app-dark">
+              {user ? user?.firstname : "---"}
+              <span> {user?.lastname} </span>
+              <span> {user?.middlename} </span>
+            </p>
+            <p className="text-[14px] text-app-dark border border-[#E3E3F0] px-7 py-1 rounded-sm">
+              {user?.role == "admin"
+                ? "Administrateur"
+                : user?.role == "cabinet"
+                ? "Cabinet"
+                : "SG"}
+            </p>
+          </div>
+        )}
         <ul className="text-app-dark font-medium flex flex-col">
           {user?.role == "admin" && (
             <li

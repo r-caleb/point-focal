@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Suppression from "./Suppression";
+import Suppression from "./popups/Suppression";
 import {
   deleteApplication,
   updateApplication,
 } from "@/redux/appSlice/appActions";
-import Modification from "./Modification";
+import Modification from "./popups/Modification";
 import { resetMessage } from "@/redux/appSlice/appSlice";
+import AppTableSkeleton from "./skeletons/AppTableSkeleton";
 
 export const ApplicationList = ({
   applications,
@@ -46,7 +47,6 @@ export const ApplicationList = ({
     }
   }, [dispatch, appInfo]);
   const listApps = role == "admin" ? apps : applications;
-  console.log("aaaa", applications);
 
   // Fermer le popup
   const closePopup = () => {
@@ -131,47 +131,51 @@ export const ApplicationList = ({
           </p>
         )}
       </div>
-      <div className="max-md:overflow-scroll">
-        <table className="min-w-full bg-white border">
-          <thead className=" text-md">
-            <tr>
-              <th className="border px-4 py-2">NOM</th>
-              <th className="border px-4 py-2">TYPE</th>
-              <th className="border px-4 py-2">MINISTERE</th>
-              <th className="border px-4 py-2">ACTIONS</th>
-            </tr>
-          </thead>
-          <tbody className="text-[15px]">
-            {currentApps?.map((app) => (
-              <tr key={app.id}>
-                <td className="border px-4 py-2">{app.name}</td>
-                <td className="border px-4 py-2">{app.type}</td>
-                <td className="border px-4 py-2">{app.ministry.smallName}</td>
-                <td className="border px-4 py-2">
-                  <button
-                    onClick={() => handleDetails(app)}
-                    className="bg-blue-500 text-white px-4 py-2 rounded mr-2 max-sm:mb-1"
-                  >
-                    Détails
-                  </button>
-                  <button
-                    onClick={() => handleEdit(app)}
-                    className="bg-yellow-500 text-white px-4 py-2 rounded mr-2 max-sm:mb-1"
-                  >
-                    Modifier
-                  </button>
-                  <button
-                    onClick={() => handleDeleteConfirmation(app)}
-                    className="bg-red-500 text-white px-4 py-2 rounded"
-                  >
-                    Supprimer
-                  </button>
-                </td>
+      {!apps || !applications ? (
+        <AppTableSkeleton />
+      ) : (
+        <div className="max-md:overflow-scroll">
+          <table className="min-w-full bg-white border">
+            <thead className=" text-md">
+              <tr>
+                <th className="border px-4 py-2">NOM</th>
+                <th className="border px-4 py-2">TYPE</th>
+                <th className="border px-4 py-2">MINISTERE</th>
+                <th className="border px-4 py-2">ACTIONS</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody className="text-[15px]">
+              {currentApps?.map((app) => (
+                <tr key={app._id}>
+                  <td className="border px-4 py-2">{app.name}</td>
+                  <td className="border px-4 py-2">{app.type}</td>
+                  <td className="border px-4 py-2">{app.ministry.smallName}</td>
+                  <td className="border px-4 py-2">
+                    <button
+                      onClick={() => handleDetails(app)}
+                      className="bg-blue-500 text-white px-4 py-2 rounded mr-2 max-sm:mb-1"
+                    >
+                      Détails
+                    </button>
+                    <button
+                      onClick={() => handleEdit(app)}
+                      className="bg-yellow-500 text-white px-4 py-2 rounded mr-2 max-sm:mb-1"
+                    >
+                      Modifier
+                    </button>
+                    <button
+                      onClick={() => handleDeleteConfirmation(app)}
+                      className="bg-red-500 text-white px-4 py-2 rounded"
+                    >
+                      Supprimer
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
       {/* Info Pagination */}
       <p className="text-center text-xs text-gray-600 my-2">
         Page {currentPage} sur {Math.ceil(safeListApps.length / appsPerPage)} —{" "}

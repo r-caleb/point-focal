@@ -16,9 +16,10 @@ import {
   updateMinistry,
 } from "@/redux/ministrySlice/ministryActions";
 import { useDispatch, useSelector } from "react-redux";
-import Suppression from "@/app/components/Suppression";
-import Modification from "@/app/components/Modification";
+import Suppression from "@/app/components/popups/Suppression";
+import Modification from "@/app/components/popups/Modification";
 import { resetMessage } from "@/redux/ministrySlice/ministrySlice";
+import MinistryTableSkeleton from "@/app/components/skeletons/MinistryTableSkeleton";
 
 export default function Dashboard() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -124,45 +125,49 @@ export default function Dashboard() {
           {" "}
           <div className="container mx-auto mt-1 p-2">
             <h1 className="text-lg font-bold m-2">Liste des Ministères</h1>
-            <div className="max-md:overflow-scroll">
-              <table className="min-w-full bg-white border border-gray-200">
-                <thead>
-                  <tr className="w-full bg-gray-200 text-gray-600 uppercase text-md leading-normal">
-                    <th className="py-3 px-6 text-left"></th>
-                    <th className="py-3 px-6 text-left">Nom Complet</th>
-                    <th className="py-3 px-6 text-left">Nom abregé</th>
-                    <th className="py-3 px-6 text-left">Actions</th>
-                  </tr>
-                </thead>
-                <tbody className="text-gray-600 text-[15px] font-light">
-                  {currentMinistries?.map((ministry, idx) => (
-                    <tr
-                      key={ministry._id}
-                      className="border-b border-gray-200 hover:bg-gray-100"
-                    >
-                      <td className="py-3 px-6">{idx + 1}</td>
-                      <td className="py-3 px-6 w-96">{ministry?.name}</td>
-                      <td className="py-3 px-6">{ministry?.smallName}</td>
-
-                      <td className="py-3 px-6">
-                        <button
-                          onClick={() => openEditModal(ministry)}
-                          className="bg-yellow-500 text-white px-4 py-2 rounded mr-2 max-sm:mb-1"
-                        >
-                          Modifier
-                        </button>
-                        <button
-                          onClick={() => openDeleteModal(ministry)}
-                          className="bg-red-500 text-white px-4 py-2 rounded"
-                        >
-                          Supprimer
-                        </button>
-                      </td>
+            {!allMinistries ? (
+              <MinistryTableSkeleton />
+            ) : (
+              <div className="max-md:overflow-scroll">
+                <table className="min-w-full bg-white border border-gray-200">
+                  <thead>
+                    <tr className="w-full bg-gray-200 text-gray-600 uppercase text-md leading-normal">
+                      <th className="py-3 px-6 text-left"></th>
+                      <th className="py-3 px-6 text-left">Nom Complet</th>
+                      <th className="py-3 px-6 text-left">Nom abregé</th>
+                      <th className="py-3 px-6 text-left">Actions</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody className="text-gray-600 text-[15px] font-light">
+                    {currentMinistries?.map((ministry, idx) => (
+                      <tr
+                        key={ministry._id}
+                        className="border-b border-gray-200 hover:bg-gray-100"
+                      >
+                        <td className="py-3 px-6">{idx + 1}</td>
+                        <td className="py-3 px-6 w-96">{ministry?.name}</td>
+                        <td className="py-3 px-6">{ministry?.smallName}</td>
+
+                        <td className="py-3 px-6">
+                          <button
+                            onClick={() => openEditModal(ministry)}
+                            className="bg-yellow-500 text-white px-4 py-2 rounded mr-2 max-sm:mb-1"
+                          >
+                            Modifier
+                          </button>
+                          <button
+                            onClick={() => openDeleteModal(ministry)}
+                            className="bg-red-500 text-white px-4 py-2 rounded"
+                          >
+                            Supprimer
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
             <Suppression show={successPopup} onHide={setHide} />
             <Modification show={editPopup} onHide={setEdit} />
             {/* Info Pagination */}

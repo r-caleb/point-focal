@@ -18,10 +18,10 @@ import { FaRegBuilding } from "react-icons/fa";
 import { HiLockClosed } from "react-icons/hi";
 import { registerUser } from "@/redux/authSlice/authActions";
 import { useDispatch, useSelector } from "react-redux";
-import SuccessPopup from "@/app/components/SuccessPopup";
+import SuccessPopup from "@/app/components/popups/SuccessPopup";
 import { deleteUser, getUsers } from "@/redux/userSlice/userActions";
 import { getMinistries } from "@/redux/ministrySlice/ministryActions";
-import Suppression from "@/app/components/Suppression";
+import Suppression from "@/app/components/popups/Suppression";
 import { resetMessage } from "@/redux/userSlice/userSlice";
 import { resetInfos } from "@/redux/authSlice/authSlice";
 

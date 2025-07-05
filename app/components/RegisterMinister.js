@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Input } from "./inputs";
 import { FiSave } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import SuccessPopup from "./SuccessPopup";
+import SuccessPopup from "./popups/SuccessPopup";
 import { addMnistry } from "@/redux/ministrySlice/ministryActions";
 import { resetMessage } from "@/redux/ministrySlice/ministrySlice";
 

@@ -5,6 +5,7 @@ import userReducer from "./userSlice/userSlice";
 import ministryReducer from "./ministrySlice/ministrySlice";
 import messageReducer from "./messageSlice/messageSlice";
 import appReducer from "./appSlice/appSlice";
+import notifReducer from "./notifSlice/notifSlice";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     ministry: ministryReducer,
     message: messageReducer,
     app: appReducer,
+    notif: notifReducer,
   },
 });
 

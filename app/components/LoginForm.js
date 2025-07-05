@@ -127,7 +127,7 @@ const LoginForm = () => {
       </div>
       <div>
         <button
-          disabled={isSubmitting && "true"}
+          disabled={isSubmitting && true}
           style={{
             width: "100%",
             cursor: isSubmitting ? "not-allowed" : "pointer",

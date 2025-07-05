@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Input } from "../../components/inputs";
 import { HiLockClosed } from "react-icons/hi";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import PasswordPopup from "../../components/PasswordPopup";
+import PasswordPopup from "../../components/popups/PasswordPopup";
 import { useDispatch, useSelector } from "react-redux";
 import { changePassword } from "@/redux/userSlice/userActions";
 import { resetMessage } from "@/redux/userSlice/userSlice";

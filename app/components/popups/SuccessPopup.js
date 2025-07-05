@@ -1,6 +1,5 @@
 import React from "react";
-import { MdOutlineDone } from "react-icons/md";
-import { MdClose } from "react-icons/md";
+import { MdOutlineDone, MdClose } from "react-icons/md";
 
 const SuccessPopup = ({ show, onHide }) => {
   return (

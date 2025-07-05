@@ -1,14 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Input } from "../components/inputs";
-import Modification from "../components/Modification";
+import Modification from "../components/popups/Modification";
 import { FiMail, FiMapPin, FiPhone, FiUser } from "react-icons/fi";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { MdCheckBox, MdOutlineCropSquare, MdOutlineDns } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { editProfil } from "@/redux/userSlice/userActions";
 import { getMe } from "@/redux/authSlice/authActions";
-import ModificationRefresh from "../components/ModificationRefresh";
+import ModificationRefresh from "../components/popups/ModificationRefresh";
 
 const Radio = ({ label, getChecked, checked, value }) => {
   return (

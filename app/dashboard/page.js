@@ -14,13 +14,15 @@ import {
 } from "@/redux/userSlice/userActions";
 import Link from "next/link";
 import { resetMessage } from "@/redux/userSlice/userSlice";
-import Suppression from "../components/Suppression";
-import Modification from "../components/Modification";
+import Suppression from "../components/popups/Suppression";
+import Modification from "../components/popups/Modification";
 import { getMinistries } from "@/redux/ministrySlice/ministryActions";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { registerUser } from "@/redux/authSlice/authActions";
-import SuccessPopup from "../components/SuccessPopup";
+import SuccessPopup from "../components/popups/SuccessPopup";
 import { resetInfos } from "@/redux/authSlice/authSlice";
+import StatSkeleton from "../components/skeletons/StatSkeleton";
+import TableSkeleton from "../components/skeletons/TableSkeleton";
 
 const ministries = [
   "Tout",
@@ -135,7 +137,9 @@ export default function Dashboard() {
   const usersPerPage = 5;
 
   const { stat } = useSelector((state) => state.stat);
-  const { allUsers, userUpdate, delInfos } = useSelector((state) => state.user);
+  const { allUsers, userUpdate, delInfos, loading } = useSelector(
+    (state) => state.user
+  );
   const { success, newUser, error } = useSelector((state) => state.auth);
 
   const userAll = allUsers?.users;
@@ -211,45 +215,49 @@ export default function Dashboard() {
             {/*  <p>Filter</p> */}
           </div>
         </div>
-        <div className="px-3.5 flex items-center gap-4 max-sm:flex-col">
-          <div className="bg-white w-full p-4 rounded-lg  px-8 max-md:px-4">
-            <div className="flex items-center justify-between w-full ">
-              <div>
-                <h4 className="text-md font-medium mb-4">Points Focaux</h4>
-                <p className="text-3xl font-bold text-app-dark-blue">
-                  {stat ? stat?.[1]?.count + stat?.[2]?.count : "0"}
-                </p>
+        {!stat ? (
+          <StatSkeleton />
+        ) : (
+          <div className="px-3.5 flex items-center gap-4 max-sm:flex-col">
+            <div className="bg-white w-full p-4 rounded-lg  px-8 max-md:px-4">
+              <div className="flex items-center justify-between w-full ">
+                <div>
+                  <h4 className="text-md font-medium mb-4">Points Focaux</h4>
+                  <p className="text-3xl font-bold text-app-dark-blue">
+                    {stat ? stat?.[1]?.count + stat?.[2]?.count : "0"}
+                  </p>
+                </div>
+                <FaUsers size={25} color="#3a72b8" />
               </div>
-              <FaUsers size={25} color="#3a72b8" />
+            </div>
+            <div className="bg-white w-full p-4 rounded-lg  px-8 max-md:px-4">
+              <div className="flex items-center justify-between w-full">
+                <div>
+                  <h4 className=" text-md font-medium mb-4">
+                    Cabinet du Ministre
+                  </h4>
+                  <p className="text-3xl font-bold text-[#28A745]">
+                    {stat ? stat?.[1]?.count : "0"}
+                  </p>
+                </div>
+                <FaBuilding size={25} color="#28A745" />
+              </div>
+            </div>{" "}
+            <div className="bg-white w-full p-4 rounded-lg  px-8 max-md:px-4">
+              <div className="flex items-center justify-between w-full">
+                <div>
+                  <h4 className=" text-md font-medium mb-4">
+                    Secrétariats Généraux
+                  </h4>
+                  <p className="text-3xl font-bold text-[#DC3545]">
+                    {stat ? stat?.[2]?.count : "0"}
+                  </p>
+                </div>
+                <FaBuilding size={25} color="#DC3545" />
+              </div>
             </div>
           </div>
-          <div className="bg-white w-full p-4 rounded-lg  px-8 max-md:px-4">
-            <div className="flex items-center justify-between w-full">
-              <div>
-                <h4 className=" text-md font-medium mb-4">
-                  Cabinet du Ministre
-                </h4>
-                <p className="text-3xl font-bold text-[#28A745]">
-                  {stat ? stat?.[1]?.count : "0"}
-                </p>
-              </div>
-              <FaBuilding size={25} color="#28A745" />
-            </div>
-          </div>{" "}
-          <div className="bg-white w-full p-4 rounded-lg  px-8 max-md:px-4">
-            <div className="flex items-center justify-between w-full">
-              <div>
-                <h4 className=" text-md font-medium mb-4">
-                  Secrétariats Généraux
-                </h4>
-                <p className="text-3xl font-bold text-[#DC3545]">
-                  {stat ? stat?.[2]?.count : "0"}
-                </p>
-              </div>
-              <FaBuilding size={25} color="#DC3545" />
-            </div>
-          </div>
-        </div>
+        )}
         <div className="flex justify-between w-full p-1 overflow-x-scroll max-sm:p-0 scrollbar-hide scrol">
           {ministries.map((value, i) => {
             return (
@@ -279,75 +287,79 @@ export default function Dashboard() {
                 + Ajouter un point focal
               </div>
             </div>
-            <div className="max-sm:overflow-scroll ">
-              <table className="min-w-full bg-white border border-gray-200">
-                <thead>
-                  <tr className="w-full bg-gray-200 text-gray-600 uppercase text-md leading-normal">
-                    <th className="py-3 px-6 text-left"></th>
-                    <th className="py-3 px-6 text-left">Nom</th>
-                    <th className="py-3 px-6 text-left">
-                      Ministère | Administration
-                    </th>
-                    <th className="py-3 px-6 text-left">ROLE</th>
-                    <th className="py-3 px-6 text-left">Actions</th>
-                  </tr>
-                </thead>
-                <tbody className="text-gray-600 text-[15px] font-light">
-                  {currentUsers?.map((user) => (
-                    <tr
-                      key={user._id}
-                      className="border-b border-gray-200 hover:bg-gray-100"
-                    >
-                      <td className="py-3 px-6">
-                        <img
-                          src={
-                            user?.picture
-                              ? `${user?.picture}`
-                              : "/images/unknown.png"
-                          }
-                          alt={user.firstname}
-                          className="h-10 w-10 rounded-full object-cover"
-                        />
-                      </td>
-                      <td className="py-3 px-6">
-                        {user.firstname} {user.lastname}
-                      </td>
-                      <td className="py-3 px-6 w-72">
-                        {user?.ministry?.name}{" "}
-                        {user?.administration && `| ${user.administration}`}
-                      </td>
-                      <td className="py-3 px-6">
-                        {user?.role == "cabinet"
-                          ? "Cabinet"
-                          : user?.role == "secretariat"
-                          ? "Secrétariat"
-                          : "Administrateur"}
-                      </td>
-                      <td className="py-3 px-6">
-                        <button
-                          onClick={() => openModal(user)}
-                          className="bg-app-blue text-white px-4 py-2 rounded mr-2 max-sm:mb-1"
-                        >
-                          Voir
-                        </button>
-                        <button
-                          onClick={() => openEditModal(user)}
-                          className="bg-yellow-500 text-white px-4 py-2 rounded mr-2 max-sm:mb-1"
-                        >
-                          Modifier
-                        </button>
-                        <button
-                          onClick={() => openDeleteModal(user)}
-                          className="bg-red-500 text-white px-4 py-2 rounded"
-                        >
-                          Supprimer
-                        </button>
-                      </td>
+            {!userAll ? (
+              <TableSkeleton />
+            ) : (
+              <div className="max-sm:overflow-scroll ">
+                <table className="min-w-full bg-white border border-gray-200">
+                  <thead>
+                    <tr className="w-full bg-gray-200 text-gray-600 uppercase text-md leading-normal">
+                      <th className="py-3 px-6 text-left"></th>
+                      <th className="py-3 px-6 text-left">Nom</th>
+                      <th className="py-3 px-6 text-left">
+                        Ministère | Administration
+                      </th>
+                      <th className="py-3 px-6 text-left">ROLE</th>
+                      <th className="py-3 px-6 text-left">Actions</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody className="text-gray-600 text-[15px] font-light">
+                    {currentUsers?.map((user) => (
+                      <tr
+                        key={user._id}
+                        className="border-b border-gray-200 hover:bg-gray-100"
+                      >
+                        <td className="py-3 px-6">
+                          <img
+                            src={
+                              user?.picture
+                                ? `${user?.picture}`
+                                : "/images/unknown.png"
+                            }
+                            alt={user.firstname}
+                            className="h-10 w-10 rounded-full object-cover"
+                          />
+                        </td>
+                        <td className="py-3 px-6">
+                          {user.firstname} {user.lastname}
+                        </td>
+                        <td className="py-3 px-6 w-72">
+                          {user?.ministry?.name}{" "}
+                          {user?.administration && `| ${user.administration}`}
+                        </td>
+                        <td className="py-3 px-6">
+                          {user?.role == "cabinet"
+                            ? "Cabinet"
+                            : user?.role == "secretariat"
+                            ? "Secrétariat"
+                            : "Administrateur"}
+                        </td>
+                        <td className="py-3 px-6">
+                          <button
+                            onClick={() => openModal(user)}
+                            className="bg-app-blue text-white px-4 py-2 rounded mr-2 max-sm:mb-1"
+                          >
+                            Voir
+                          </button>
+                          <button
+                            onClick={() => openEditModal(user)}
+                            className="bg-yellow-500 text-white px-4 py-2 rounded mr-2 max-sm:mb-1"
+                          >
+                            Modifier
+                          </button>
+                          <button
+                            onClick={() => openDeleteModal(user)}
+                            className="bg-red-500 text-white px-4 py-2 rounded"
+                          >
+                            Supprimer
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
             {/* Info Pagination */}
             <p className="text-center text-xs text-gray-600 my-2">
               Page {currentPage} sur{" "}

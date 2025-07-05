@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppForm } from "@/app/components/AppForm";
 import { ApplicationList } from "@/app/components/ApplicationList";
 import { addApplication, getApplications } from "@/redux/appSlice/appActions";
-import SuccessPopup from "@/app/components/SuccessPopup";
+import SuccessPopup from "@/app/components/popups/SuccessPopup";
 import { resetMessage } from "@/redux/appSlice/appSlice";
 import NoApp from "@/app/components/NoApp";
 
