@@ -19,7 +19,7 @@ export const AppForm = ({
           name="type"
           value={formData.type}
           onChange={handleChange}
-          className="block w-full border rounded px-4 py-2"
+          className="block w-full border rounded text-base sm:text-sm px-4 py-2"
           required
         >
           <option value="">-- Sélectionner --</option>
@@ -39,7 +39,7 @@ export const AppForm = ({
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className="block w-full border rounded px-4 py-2"
+          className="block w-full border rounded text-base sm:text-sm px-4 py-2"
           placeholder="Exemple : www.exemple.com"
           required
         />
@@ -54,7 +54,7 @@ export const AppForm = ({
           name="description"
           value={formData.description}
           onChange={handleChange}
-          className="block w-full border rounded px-4 py-2"
+          className="block w-full border rounded text-base sm:text-sm px-4 py-2"
           placeholder="Donnez une description détaillée de l'application"
           rows="3"
           required
@@ -71,7 +71,7 @@ export const AppForm = ({
           name="registry"
           value={formData.registry}
           onChange={handleChange}
-          className="block w-full border rounded px-4 py-2"
+          className="block w-full border rounded text-base sm:text-sm px-4 py-2"
           placeholder="Exemple : Gestion des ressources humaines"
         />
       </div>
@@ -85,7 +85,7 @@ export const AppForm = ({
           name="developmentService"
           value={formData.developmentService}
           onChange={handleChange}
-          className="block w-full border rounded px-4 py-2"
+          className="block w-full border rounded text-base sm:text-sm px-4 py-2"
           required
         >
           <option value="">-- Sélectionner --</option>
@@ -103,7 +103,7 @@ export const AppForm = ({
           name="financingSource"
           value={formData.financingSource}
           onChange={handleChange}
-          className="block w-full border rounded px-4 py-2"
+          className="block w-full border rounded text-base sm:text-sm px-4 py-2"
           required
         >
           <option value="">-- Sélectionner --</option>
@@ -123,7 +123,7 @@ export const AppForm = ({
           name="partnerName"
           value={formData.partnerName}
           onChange={handleChange}
-          className="block w-full border rounded px-4 py-2"
+          className="block w-full border rounded text-base sm:text-sm px-4 py-2"
           placeholder="Exemple : Banque Mondiale"
         />
       </div>
@@ -137,7 +137,7 @@ export const AppForm = ({
           name="usageContext"
           value={formData.usageContext}
           onChange={handleChange}
-          className="block w-full border rounded px-4 py-2"
+          className="block w-full border rounded text-base sm:text-sm px-4 py-2"
           required
         >
           <option value="">-- Sélectionner --</option>
@@ -156,7 +156,7 @@ export const AppForm = ({
           name="maintenanceService"
           value={formData.maintenanceService}
           onChange={handleChange}
-          className="block w-full border rounded px-4 py-2"
+          className="block w-full border rounded text-base sm:text-sm px-4 py-2"
           required
         >
           <option value="">-- Sélectionner --</option>

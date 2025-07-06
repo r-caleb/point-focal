@@ -205,7 +205,7 @@ export const ApplicationList = ({
       {/* Popup Détails */}
       {popupType === "details" && selectedApp && (
         <div className="fixed inset-0 bg-black z-50 bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-6 rounded shadow-lg max-w-md">
+          <div className="bg-white p-6 rounded shadow-lg max-w-md max-sm:w-5/6">
             <h2 className="text-lg font-bold text-app-blue mb-4">
               Détails de l'application
             </h2>
@@ -268,7 +268,7 @@ export const ApplicationList = ({
       {/* Popup Modifier */}
       {popupType === "edit" && selectedApp && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
-          <div className="bg-white p-6 rounded shadow-lg w-3/4 overflow-y-auto max-h-[90vh]">
+          <div className="bg-white p-6 rounded shadow-lg w-3/4 overflow-y-auto max-h-[90vh] max-sm:w-5/6">
             <h2 className="text-lg text-app-blue font-bold mb-4">
               Modifier l'application
             </h2>
@@ -278,7 +278,7 @@ export const ApplicationList = ({
             >
               <div className="grid grid-cols-2 gap-4">
                 {/* Champ 1 : Type d'application */}
-                <div>
+                <div className="max-md:flex max-md:flex-col max-md:justify-between">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     Type d'application *
                   </label>
@@ -286,7 +286,7 @@ export const ApplicationList = ({
                     name="type"
                     value={formData.type}
                     onChange={handleChange}
-                    className="block w-full border rounded px-4 py-2"
+                    className="block w-full border rounded text-base sm:text-smpx-4 py-2"
                     required
                   >
                     <option value="">-- Sélectionner --</option>
@@ -301,7 +301,7 @@ export const ApplicationList = ({
                 </div>
 
                 {/* Champ 2 : Nom / Lien de l'application */}
-                <div>
+                <div className="max-md:flex max-md:flex-col max-md:justify-between">
                   <label className="block text-gray-700 text-md font-bold mb-2">
                     Nom ou Lien de l'application *
                   </label>
@@ -310,14 +310,14 @@ export const ApplicationList = ({
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="block w-full border rounded px-4 py-2"
+                    className="block w-full border rounded text-base sm:text-smpx-4 py-2"
                     placeholder="Exemple : www.exemple.com"
                     required
                   />
                 </div>
 
                 {/* Champ 3 : Description */}
-                <div className="col-span-2">
+                <div className="col-span-2 max-md:flex max-md:flex-col max-md:justify-between">
                   <label className="block text-gray-700 text-md font-bold mb-2">
                     Description de l'application *
                   </label>
@@ -325,7 +325,7 @@ export const ApplicationList = ({
                     name="description"
                     value={formData.description}
                     onChange={handleChange}
-                    className="block w-full border rounded px-4 py-2"
+                    className="block w-full border rounded text-base sm:text-smpx-4 py-2"
                     placeholder="Donnez une description détaillée de l'application"
                     rows="2"
                     required
@@ -333,7 +333,7 @@ export const ApplicationList = ({
                 </div>
 
                 {/* Champ 4 : Registre */}
-                <div>
+                <div className="max-md:flex max-md:flex-col max-md:justify-between">
                   <label className="block text-gray-700 text-md font-bold mb-2">
                     Dans quel registre l'app est utilisée ?
                   </label>
@@ -342,13 +342,13 @@ export const ApplicationList = ({
                     name="registry"
                     value={formData.registry}
                     onChange={handleChange}
-                    className="block w-full border rounded px-4 py-2"
+                    className="block w-full border rounded text-base sm:text-smpx-4 py-2"
                     placeholder="Exemple : Gestion des ressources humaines"
                   />
                 </div>
 
                 {/* Champ 5 : Service ayant développé l'application */}
-                <div>
+                <div className="max-md:flex max-md:flex-col max-md:justify-between">
                   <label className="block text-gray-700 text-md font-bold mb-2">
                     Service ayant Développé l'application *
                   </label>
@@ -356,7 +356,7 @@ export const ApplicationList = ({
                     name="developmentService"
                     value={formData.developmentService}
                     onChange={handleChange}
-                    className="block w-full border rounded px-4 py-2"
+                    className="block w-full border rounded text-base sm:text-smpx-4 py-2"
                     required
                   >
                     <option value="">-- Sélectionner --</option>
@@ -368,7 +368,7 @@ export const ApplicationList = ({
                 </div>
 
                 {/* Champ 6 : Source de Financement */}
-                <div>
+                <div className="max-md:flex max-md:flex-col max-md:justify-between">
                   <label className="block text-gray-700 text-md font-bold mb-2">
                     Source de Financement *
                   </label>
@@ -376,7 +376,7 @@ export const ApplicationList = ({
                     name="financingSource"
                     value={formData.financingSource}
                     onChange={handleChange}
-                    className="block w-full border rounded px-4 py-2"
+                    className="block w-full border rounded text-base sm:text-smpx-4 py-2"
                     required
                   >
                     <option value="">-- Sélectionner --</option>
@@ -387,7 +387,7 @@ export const ApplicationList = ({
                 </div>
 
                 {/* Champ 7 : Précisez le nom du partenaire */}
-                <div>
+                <div className="max-md:flex max-md:flex-col max-md:justify-between">
                   <label className="block text-gray-700 text-md font-bold mb-2">
                     Précisez le nom du partenaire
                   </label>
@@ -396,13 +396,13 @@ export const ApplicationList = ({
                     name="partnerName"
                     value={formData.partnerName}
                     onChange={handleChange}
-                    className="block w-full border rounded px-4 py-2"
+                    className="block w-full border rounded text-base sm:text-smpx-4 py-2"
                     placeholder="Exemple : Banque Mondiale"
                   />
                 </div>
 
                 {/* Champ 8 : Cadre d'utilisation */}
-                <div>
+                <div className="max-md:flex max-md:flex-col max-md:justify-between">
                   <label className="block text-gray-700 text-md font-bold mb-2">
                     Cadre d'utilisation *
                   </label>
@@ -410,7 +410,7 @@ export const ApplicationList = ({
                     name="usageContext"
                     value={formData.usageContext}
                     onChange={handleChange}
-                    className="block w-full border rounded px-4 py-2"
+                    className="block w-full border rounded text-base sm:text-smpx-4 py-2"
                     required
                   >
                     <option value="">-- Sélectionner --</option>
@@ -421,7 +421,7 @@ export const ApplicationList = ({
                 </div>
 
                 {/* Champ 9 : Service assurant la maintenance */}
-                <div>
+                <div className="max-md:flex max-md:flex-col max-md:justify-between">
                   <label className="block text-gray-700 text-md font-bold mb-2">
                     Service assurant la maintenance *
                   </label>
@@ -429,7 +429,7 @@ export const ApplicationList = ({
                     name="maintenanceService"
                     value={formData.maintenanceService}
                     onChange={handleChange}
-                    className="block w-full border rounded px-4 py-2"
+                    className="block w-full border rounded text-base sm:text-smpx-4 py-2"
                     required
                   >
                     <option value="">-- Sélectionner --</option>
@@ -462,7 +462,7 @@ export const ApplicationList = ({
       {/* Popup Supprimer */}
       {popupType === "delete" && selectedApp && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
-          <div className="bg-white p-6 rounded shadow-lg max-w-sm">
+          <div className="bg-white p-6 rounded shadow-lg max-w-sm max-sm:w-5/6">
             <h2 className="text-lg font-bold mb-4">Confirmer la suppression</h2>
             <p className="text-md">
               Êtes-vous sûr de vouloir supprimer{" "}

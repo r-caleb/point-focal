@@ -230,7 +230,7 @@ export default function Dashboard() {
                               name: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
                       <div className="mb-4">
@@ -246,7 +246,7 @@ export default function Dashboard() {
                               smallName: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
                       <div className="flex justify-end mt-4 ">
