@@ -585,7 +585,7 @@ export default function Profile() {
                     </button>
                     <button
                       onClick={() => openDeleteModal(user)}
-                      className="bg-red-500 text-white px-4 py-2 rounded"
+                      className="bg-red-500 text-white px-4 py-2 rounded max-sm:mb-1"
                     >
                       Supprimer
                     </button>
@@ -632,7 +632,7 @@ export default function Profile() {
       {/* Modal */}
       {isModalOpen && selectedUser && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg shadow-lg w-3/4 max-w-lg p-6">
+          <div className="bg-white rounded-lg shadow-lg w-4/5 max-w-lg p-6">
             <h2 className="text-lg font-bold mb-4">
               Détails de {selectedUser.firstname} {selectedUser.lastname}
             </h2>
@@ -640,7 +640,7 @@ export default function Profile() {
               <img
                 src={
                   selectedUser?.picture
-                    ? `${process.env.NEXT_PUBLIC_DEV_API_URL}${selectedUser.picture}`
+                    ? `${selectedUser.picture}`
                     : "/images/unknown.png"
                 }
                 alt="User"
@@ -697,7 +697,7 @@ export default function Profile() {
       {/* Modal de suppression */}
       {isDeleteModalOpen && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg shadow-lg w-3/4 max-w-md p-6">
+          <div className="bg-white rounded-lg shadow-lg w-4/5 max-w-md p-6">
             <h2 className="text-lg font-bold mb-4">Confirmer la suppression</h2>
             <p className="mb-4 text-[15px]">
               Êtes-vous sûr de vouloir supprimer{" "}

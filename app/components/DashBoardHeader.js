@@ -113,8 +113,8 @@ const DashBoardHeader = ({ handleToggleSidebar }) => {
               className="absolute w-screen h-screen top-0 left-0 bg-transparent"
             ></div>
 
-            <div className="absolute flex flex-col justify-between bg-white border-2 top-[43px] right-[60px] h-[500px] max-sm:right-[10px] w-[370px] rounded-xl p-4 shadow-lg">
-              <div className="font-semibold text-md text-center text-black mb-2">
+            <div className="absolute flex flex-col justify-between bg-white border-2 top-[43px] right-[60px] h-[500px] max-sm:right-[10px] w-[370px] rounded-xl p-4 shadow-lg text-black">
+              <div className="font-semibold text-md text-center  mb-2">
                 Notifications
               </div>
               <hr />

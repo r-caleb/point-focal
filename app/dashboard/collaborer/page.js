@@ -40,7 +40,7 @@ export default function Collaborer() {
             {!allMessages ? (
               <MessageListSkeleton />
             ) : (
-              <div className="mx-auto w-[90%] px-4 max-md:px-2 max-md:w-full">
+              <div className="mx-auto w-[90%] max-sm:w-full px-4 max-md:px-2 max-md:w-full">
                 {userInfo?.user?.role == "admin" ? (
                   allMessages?.messages?.map((message, index) => (
                     <div
