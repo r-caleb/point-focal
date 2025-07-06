@@ -118,7 +118,7 @@ export default function DashLayout({ children }) {
           {!user ? (
             <SkeletonUserDetails />
           ) : (
-            <div className="bg-white md:fixed p-4 flex flex-col rounded-md w-[350px]">
+            <div className="bg-white md:fixed p-4 flex flex-col rounded-md w-[350px] max-sm:w-full">
               <div className="flex items-center  my-2 w-full gap-4">
                 <form className="flex flex-col items-center">
                   <input

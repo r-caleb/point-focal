@@ -15,7 +15,7 @@ export const Input = ({
     <div className="w-full">
       <div
         className={
-          "bg-app-filter-blue border max-sm:w-full md:min-w-[300px]  px-4 py-3 rounded-lg flex items-center h-fit  hover:border-app-dark-blue focus-within:border-app-dark-blue " +
+          "bg-app-filter-blue dark:bg-slate-800 border max-sm:w-full md:min-w-[300px]  px-4 py-3 rounded-lg flex items-center h-fit  hover:border-app-dark-blue focus-within:border-app-dark-blue " +
           customClass +
           (messageIfError ? " border-[red] " : " border-trasparent ")
         }
