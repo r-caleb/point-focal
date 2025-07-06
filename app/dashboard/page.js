@@ -397,7 +397,7 @@ export default function Dashboard() {
                     <img
                       src={
                         selectedUser?.picture
-                          ? `${process.env.NEXT_PUBLIC_DEV_API_URL}${selectedUser.picture}`
+                          ? `${selectedUser.picture}`
                           : "/images/unknown.png"
                       }
                       alt="User"
