@@ -496,7 +496,7 @@ export default function Dashboard() {
                               firstname: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm "
                         />
                       </div>
 
@@ -514,7 +514,7 @@ export default function Dashboard() {
                               lastname: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
                     </div>
@@ -534,7 +534,7 @@ export default function Dashboard() {
                               middlename: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
 
@@ -548,7 +548,7 @@ export default function Dashboard() {
                           onChange={(e) =>
                             setNewUser({ ..._newUser, gender: e.target.value })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         >
                           <option value="">-- Sélectionnez --</option>
                           <option value="Homme">Homme</option>
@@ -568,7 +568,7 @@ export default function Dashboard() {
                           onChange={(e) =>
                             setNewUser({ ..._newUser, role: e.target.value })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         >
                           <option value="cabinet">Cabinet</option>
                           <option value="secretariat">Secrétariat</option>
@@ -589,7 +589,7 @@ export default function Dashboard() {
                               ministry: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         >
                           <option value="">
                             -- Sélectionnez un ministère --
@@ -621,7 +621,7 @@ export default function Dashboard() {
                               administration: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
 
@@ -639,7 +639,7 @@ export default function Dashboard() {
                               fonction: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
                     </div>
@@ -659,7 +659,7 @@ export default function Dashboard() {
                               phoneNumber: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
 
@@ -674,7 +674,7 @@ export default function Dashboard() {
                           onChange={(e) =>
                             setNewUser({ ..._newUser, email: e.target.value })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
                     </div>
@@ -780,7 +780,7 @@ export default function Dashboard() {
                               firstname: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
 
@@ -798,7 +798,7 @@ export default function Dashboard() {
                               lastname: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
                     </div>
@@ -817,7 +817,7 @@ export default function Dashboard() {
                               middlename: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
 
@@ -834,7 +834,7 @@ export default function Dashboard() {
                               gender: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         >
                           <option value="Homme">Homme</option>
                           <option value="Femme">Femme</option>
@@ -855,7 +855,7 @@ export default function Dashboard() {
                               role: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         >
                           <option value="cabinet">Cabinet</option>
                           <option value="secretariat">Secrétariat</option>
@@ -879,7 +879,7 @@ export default function Dashboard() {
                               },
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         >
                           <option value="" disabled>
                             -- Sélectionnez un ministère --
@@ -910,7 +910,7 @@ export default function Dashboard() {
                               administration: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
 
@@ -928,7 +928,7 @@ export default function Dashboard() {
                               fonction: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
                     </div>{" "}
@@ -947,7 +947,7 @@ export default function Dashboard() {
                               phoneNumber: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
 
@@ -965,7 +965,7 @@ export default function Dashboard() {
                               email: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
                     </div>{" "}
@@ -984,7 +984,7 @@ export default function Dashboard() {
                               address: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
 
@@ -1002,7 +1002,7 @@ export default function Dashboard() {
                               domain: e.target.value,
                             })
                           }
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded text-base sm:text-sm"
                         />
                       </div>
                     </div>
