@@ -34,7 +34,7 @@ export const Input = ({
               doOnInput(e.target.value);
             }}
             className={
-              "w-full h-full text-black p-0 outline-none bg-transparent text-sm dark:text-white dark:placeholder-gray-400"
+              "w-full h-full text-black p-0 outline-none bg-transparent text-sm dark:text-white dark:placeholder-gray-400 appearance-none"
             }
           />
           {customElements}

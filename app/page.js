@@ -4,12 +4,12 @@ import LoginForm from "./components/LoginForm";
 export default function Home() {
   return (
     <div>
-      <main className="flex w-screen h-screen">
+      <main className="flex w-screen min-h-[100dvh] overflow-hidden">
         <div
           className="w-2/5 bg-no-repeat bg-cover bg-bottom max-sm:hidden"
           style={divStyle}
         ></div>
-        <div className="flex flex-col items-center justify-center w-3/5 max-sm:w-full max-sm:overflow-hidden">
+        <div className="flex flex-col items-center justify-center w-3/5 max-sm:w-full ">
           <AiOutlineLoading3Quarters
             className="text-app-dark-blue mb-3"
             size={20}
