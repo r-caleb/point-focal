@@ -99,7 +99,7 @@ export default function Collaborer() {
     <section className="bg-[#f9f9f9] text-[13px]">
       <div className="rounded-2xl max-md:px-0 gap-2">
         <div className="p-2 w-full min-h-[375px]">
-          <div className="flex flex-col rounded-xl border-4 h-[480px]">
+          <div className="flex flex-col justify-between rounded-xl border-4 h-screen">
             {/* Header */}
             <div className="bg-app-dark-blue w-full rounded-t-xl p-1.5 flex items-center">
               <div className="p-1.5 flex items-center md:justify-between font-medium mx-1.5 w-full">
@@ -135,7 +135,7 @@ export default function Collaborer() {
             {/* Messages */}
             <div
               ref={scrollRef}
-              className="overflow-y-scroll min-h-[395px] flex flex-col items-center px-4"
+              className="overflow-y-scroll min-h-[395px] flex flex-col items-center px-4 text-black "
             >
               {messageInfo?.messages?.map((message) => (
                 <div
