@@ -267,7 +267,7 @@ export default function Collaborer() {
               <div className="container px-4 mx-auto w-full">
                 <textarea
                   rows="4"
-                  className="w-full rounded-lg p-1 focus:outline-none"
+                  className="w-full rounded-lg p-1 focus:outline-none text-base"
                   value={text}
                   onChange={handleChange}
                 ></textarea>
