@@ -15,7 +15,7 @@ export const Input = ({
     <div className="w-full">
       <div
         className={
-          "bg-app-filter-blue border max-sm:w-full md:min-w-[300px]  px-4 py-3 rounded-lg flex items-center h-fit  hover:border-app-dark-blue  focus-within:border-app-dark-blue " +
+          "bg-app-filter-blue border max-sm:w-full md:min-w-[300px]  px-4 py-3 rounded-lg flex items-center h-fit  hover:border-app-dark-blue focus-within:border-app-dark-blue " +
           customClass +
           (messageIfError ? " border-[red] " : " border-trasparent ")
         }
@@ -34,7 +34,7 @@ export const Input = ({
               doOnInput(e.target.value);
             }}
             className={
-              "w-full h-full text-black p-0 outline-none bg-transparent text-sm"
+              "w-full h-full text-black p-0 outline-none bg-transparent text-sm dark:text-white dark:placeholder-gray-400"
             }
           />
           {customElements}

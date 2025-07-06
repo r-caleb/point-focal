@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMe } from "@/redux/authSlice/authActions";
 import { getUserNotifications } from "@/redux/notifSlice/notifActions";
 import { MdDelete } from "react-icons/md";
+import NoNotifs from "./NoNotifs";
 
 const DashBoardHeader = ({ handleToggleSidebar }) => {
   const [showNotificationModal, setShowNotificationModal] = useState(false);
@@ -119,67 +120,71 @@ const DashBoardHeader = ({ handleToggleSidebar }) => {
               <hr />
 
               <div className="flex-1 overflow-y-auto my-2 pr-1">
-                {allNotifs?.map((notif) => {
-                  const msg = notif.message;
-                  const sender = msg?.sender;
-                  const hasText = msg?.text?.trim();
-                  const hasFiles = msg?.files?.length > 0;
-                  const displayText = hasText
-                    ? msg.text
-                    : hasFiles
-                    ? "[vide] : [un fichier]"
-                    : "[vide]";
-                  const date = new Date(msg?.createdAt).toLocaleString(
-                    "fr-FR",
-                    {
-                      weekday: "long",
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    }
-                  );
+                {allNotifs && allNotifs.length > 0 ? (
+                  allNotifs.map((notif) => {
+                    const msg = notif.message;
+                    const sender = msg?.sender;
+                    const hasText = msg?.text?.trim();
+                    const hasFiles = msg?.files?.length > 0;
+                    const displayText = hasText
+                      ? msg.text
+                      : hasFiles
+                      ? "[vide] : [un fichier]"
+                      : "[vide]";
+                    const date = new Date(msg?.createdAt).toLocaleString(
+                      "fr-FR",
+                      {
+                        weekday: "long",
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      }
+                    );
 
-                  return (
-                    <div key={notif._id}>
-                      <div className="flex items-start py-2 px-1">
-                        {/* Icône cloche (non cliquable) */}
-                        <span className="p-2 border mr-2 rounded-full w-fit">
-                          <BsFillBellFill color="#3a72b8" size={15} />
-                        </span>
+                    return (
+                      <div key={notif._id}>
+                        <div className="flex items-start py-2 px-1">
+                          {/* Icône cloche */}
+                          <span className="p-2 border mr-2 rounded-full w-fit">
+                            <BsFillBellFill color="#3a72b8" size={15} />
+                          </span>
 
-                        {/* Zone cliquable pour rediriger */}
-                        <Link
-                          onClick={() =>
-                            setShowNotificationModal(!showNotificationModal)
-                          }
-                          href={`/dashboard/collaborer/${sender?._id}`}
-                          className="text-[14px] flex-1 hover:bg-slate-200 p-1 cursor-pointer"
-                        >
-                          <p>
-                            <strong>{sender?.firstname || "Inconnu"} :</strong>{" "}
-                            {displayText}
-                          </p>
-                          <div className="flex items-center my-1 justify-between text-xs">
-                            <p className="text-[10px]">{date}</p>
-                          </div>
-                        </Link>
+                          {/* Zone cliquable */}
+                          <Link
+                            href={`/dashboard/collaborer/${sender?._id}`}
+                            onClick={() => setShowNotificationModal(false)}
+                            className="text-[14px] flex-1 hover:bg-slate-200 p-1 cursor-pointer"
+                          >
+                            <p>
+                              <strong>
+                                {sender?.firstname || "Inconnu"} :
+                              </strong>{" "}
+                              {displayText}
+                            </p>
+                            <div className="flex items-center my-1 justify-between text-xs">
+                              <p className="text-[10px]">{date}</p>
+                            </div>
+                          </Link>
 
-                        {/* Icône suppression (non cliquable) */}
-                        <span
-                          className="p-2 border rounded-full w-fit cursor-pointer"
-                          onClick={() => {
-                            // logique suppression ici
-                          }}
-                        >
-                          <MdDelete color="#3a72b8" size={16} />
-                        </span>
+                          {/* Supprimer */}
+                          <span
+                            className="p-2 border rounded-full w-fit cursor-pointer"
+                            onClick={() => {
+                              // logique suppression ici
+                            }}
+                          >
+                            <MdDelete color="#3a72b8" size={16} />
+                          </span>
+                        </div>
+                        <hr />
                       </div>
-                      <hr />
-                    </div>
-                  );
-                })}
+                    );
+                  })
+                ) : (
+                  <NoNotifs />
+                )}
               </div>
 
               {/* Bouton fixe */}

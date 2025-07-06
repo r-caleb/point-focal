@@ -9,7 +9,7 @@ export default function Home() {
           className="w-2/5 bg-no-repeat bg-cover bg-bottom max-sm:hidden"
           style={divStyle}
         ></div>
-        <div className="flex flex-col items-center justify-center w-3/5 max-sm:w-full">
+        <div className="flex flex-col items-center justify-center w-3/5 max-sm:w-full max-sm:overflow-hidden">
           <AiOutlineLoading3Quarters
             className="text-app-dark-blue mb-3"
             size={20}
