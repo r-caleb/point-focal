@@ -272,7 +272,7 @@ export default function Collaborer() {
                   onChange={handleChange}
                 ></textarea>
               </div>
-              <div className="flex items-end ">
+              <div className="flex items-center ">
                 <div className="py-4 ml-4">
                   <span
                     className="text-[13px] font-semibold border-2 border-white text-app-dark-blue hover:bg-app-filter-blue hover:text-white bg-white rounded-md px-8 py-2 cursor-pointer"
