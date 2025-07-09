@@ -81,11 +81,11 @@ export default function Dashboard() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <section className="flex bg-[#f9f9f9] pb-2 text-app-dark">
+    <section className="flex bg-[#f9f9f9] dark:bg-[#1E293B] pb-2 text-app-dark min-h-screen">
       <div className="flex flex-col gap-2 w-full">
-        <div className="bg-white text-md w-full p-2.5 flex  items-center justify-between border border-b">
-          <div className="flex items-center gap-2">
-            <div className="bg-app-filter-blue rounded-lg p-1">
+        <div className="bg-white dark:bg-[#27364a] text-md w-full p-2.5 flex  items-center justify-between border border-b">
+          <div className="flex items-center gap-2 dark:text-[#cccccc]">
+            <div className="bg-app-filter-blue rounded-lg p-1 ">
               <MdHome size={15} className="text-app-blue" />
             </div>
             <p>Dashboard</p>
@@ -106,7 +106,7 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="px-3.5 flex items-center gap-4">
-          <div className="bg-white w-full p-4 rounded-lg  px-8 max-md:px-4">
+          <div className="bg-white dark:bg-[#27364a] dark:text-[#cccccc] w-full p-4 rounded-lg  px-8 max-md:px-4">
             <div className="flex items-center justify-between w-full">
               <div className="w-full">
                 <h4 className="font-semibold text-lg mb-4">
@@ -124,25 +124,27 @@ export default function Dashboard() {
         <div>
           {" "}
           <div className="container mx-auto mt-1 p-2">
-            <h1 className="text-lg font-bold m-2">Liste des Ministères</h1>
+            <h1 className="text-lg font-bold m-2 dark:text-[#cccccc]">
+              Liste des Ministères
+            </h1>
             {!allMinistries ? (
               <MinistryTableSkeleton />
             ) : (
               <div className="max-md:overflow-scroll">
-                <table className="min-w-full bg-white border border-gray-200">
+                <table className="min-w-full bg-white dark:bg-[#27364a] border border-gray-200">
                   <thead>
-                    <tr className="w-full bg-gray-200 text-gray-600 uppercase text-md leading-normal">
+                    <tr className="w-full bg-gray-200 dark:bg-[#27364a] text-gray-600 dark:text-[#cccccc] uppercase text-md leading-normal">
                       <th className="py-3 px-6 text-left"></th>
                       <th className="py-3 px-6 text-left">Nom Complet</th>
                       <th className="py-3 px-6 text-left">Nom abregé</th>
                       <th className="py-3 px-6 text-left">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="text-gray-600 text-[15px] font-light">
+                  <tbody className="text-gray-600 dark:text-[#cccccc] text-[15px] font-light">
                     {currentMinistries?.map((ministry, idx) => (
                       <tr
                         key={ministry._id}
-                        className="border-b border-gray-200 hover:bg-gray-100"
+                        className="border-b border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-500"
                       >
                         <td className="py-3 px-6">{idx + 1}</td>
                         <td className="py-3 px-6 w-96">{ministry?.name}</td>

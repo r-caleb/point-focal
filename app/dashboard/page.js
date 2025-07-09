@@ -191,9 +191,9 @@ export default function Dashboard() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <section className="flex bg-[#f9f9f9] pb-2 text-app-dark">
-      <div className="flex flex-col gap-2 w-full">
-        <div className="bg-white text-sm w-full p-2.5 flex  items-center justify-between border border-b">
+    <section className="flex bg-[#f9f9f9] dark:bg-[#1E293B] pb-2 text-app-dark min-h-screen">
+      <div className="flex flex-col gap-2 w-full dark:text-[#cccccc]">
+        <div className="bg-white dark:bg-[#27364a] text-sm w-full p-2.5 flex  items-center justify-between border border-b">
           <div className="flex items-center gap-2">
             <div className="bg-app-filter-blue rounded-lg p-1">
               <MdHome size={15} className="text-app-blue" />
@@ -218,8 +218,8 @@ export default function Dashboard() {
         {!stat ? (
           <StatSkeleton />
         ) : (
-          <div className="px-3.5 flex items-center gap-4 max-sm:flex-col">
-            <div className="bg-white w-full p-4 rounded-lg  px-8 max-md:px-4">
+          <div className="px-3.5 flex items-center dark:text-[#cccccc] gap-4 max-sm:flex-col">
+            <div className="bg-white dark:bg-[#27364a] w-full p-4 rounded-lg  px-8 max-md:px-4">
               <div className="flex items-center justify-between w-full ">
                 <div>
                   <h4 className="text-md font-medium mb-4">Points Focaux</h4>
@@ -230,7 +230,7 @@ export default function Dashboard() {
                 <FaUsers size={25} color="#3a72b8" />
               </div>
             </div>
-            <div className="bg-white w-full p-4 rounded-lg  px-8 max-md:px-4">
+            <div className="bg-white dark:bg-[#27364a] w-full p-4 rounded-lg  px-8 max-md:px-4">
               <div className="flex items-center justify-between w-full">
                 <div>
                   <h4 className=" text-md font-medium mb-4">
@@ -243,7 +243,7 @@ export default function Dashboard() {
                 <FaBuilding size={25} color="#28A745" />
               </div>
             </div>{" "}
-            <div className="bg-white w-full p-4 rounded-lg  px-8 max-md:px-4">
+            <div className="bg-white dark:bg-[#27364a] w-full p-4 rounded-lg  px-8 max-md:px-4">
               <div className="flex items-center justify-between w-full">
                 <div>
                   <h4 className=" text-md font-medium mb-4">
@@ -258,14 +258,14 @@ export default function Dashboard() {
             </div>
           </div>
         )}
-        <div className="flex justify-between w-full p-1 overflow-x-scroll max-sm:p-0 scrollbar-hide scrol">
+        <div className="flex justify-between w-full p-1 overflow-x-scroll max-sm:p-0 scrollbar-hide scroll ">
           {ministries.map((value, i) => {
             return (
               <div
                 className={`flex py-1 px-4 mx-2 rounded-md max-sm:mx-3  items-center max-sm:border whitespace-nowrap cursor-pointer text-[13px] ${
                   activeElement === value
                     ? "bg-app-blue text-white font-medium max-md:text-whitemax-sm:text-white"
-                    : "text-[#565661] bg-white font-medium border hover:bg-app-filter-blue"
+                    : "text-[#565661] dark:text-[#cccccc] bg-white dark:bg-[#27364a] font-medium border hover:bg-app-filter-blue"
                 }`}
                 key={i}
                 onClick={() => handleClick(value)}
@@ -291,9 +291,9 @@ export default function Dashboard() {
               <TableSkeleton />
             ) : (
               <div className="max-sm:overflow-scroll ">
-                <table className="min-w-full bg-white border border-gray-200">
+                <table className="min-w-full bg-white dark:bg-[#27364a] border border-gray-200">
                   <thead>
-                    <tr className="w-full bg-gray-200 text-gray-600 uppercase text-md leading-normal">
+                    <tr className="w-full bg-gray-200 dark:bg-[#27364a] text-gray-600 dark:text-[#cccccc] uppercase text-md leading-normal">
                       <th className="py-3 px-6 text-left"></th>
                       <th className="py-3 px-6 text-left">Nom</th>
                       <th className="py-3 px-6 text-left">
@@ -307,7 +307,7 @@ export default function Dashboard() {
                     {currentUsers?.map((user) => (
                       <tr
                         key={user._id}
-                        className="border-b border-gray-200 hover:bg-gray-100"
+                        className="border-b border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-500 dark:text-[#cccccc]"
                       >
                         <td className="py-3 px-6">
                           <img

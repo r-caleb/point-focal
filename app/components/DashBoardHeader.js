@@ -70,7 +70,7 @@ const DashBoardHeader = ({ handleToggleSidebar }) => {
 
   return (
     <>
-      <div className="sticky z-[50] top-0 bg-white flex w-full items-center px-6 max-sm:px-1 py-2.5 ">
+      <div className="sticky z-[50] top-0 bg-white dark:bg-[#1E293B] flex w-full items-center px-6 max-sm:px-1 py-2.5 ">
         <FaBars
           className="hidden max-md:block max-md:mx-2.5 cursor-pointer text-[#b8b8b8]"
           size={26}
@@ -113,7 +113,7 @@ const DashBoardHeader = ({ handleToggleSidebar }) => {
               className="absolute w-screen h-screen top-0 left-0 bg-transparent"
             ></div>
 
-            <div className="absolute flex flex-col justify-between bg-white border-2 top-[43px] right-[60px] h-[500px] max-sm:right-[10px] w-[370px] rounded-xl p-4 shadow-lg text-black">
+            <div className="absolute flex flex-col justify-between bg-white  border-2 top-[43px] right-[60px] h-[500px] max-sm:right-[10px] w-[370px] rounded-xl p-4 shadow-lg text-black">
               <div className="font-semibold text-md text-center  mb-2">
                 Notifications
               </div>

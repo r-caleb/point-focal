@@ -26,12 +26,12 @@ export default function Collaborer() {
   console.log("admin", admin);
 
   return (
-    <section className=" bg-[#f9f9f9] text-[13px]">
+    <section className=" bg-[#fde5e5] dark:bg-[#1E293B] text-[13px]">
       <div className="p-2 rounded-2xl max-md:px-2 gap-2 flex items-center justify-between">
-        <div className="bg-white rounded-2xl w-full h-screen text-app-dark">
+        <div className="bg-white dark:bg-[#27364a] rounded-2xl w-full h-screen text-app-dark dark:text-[#cccccc]">
           <div className="flex flex-col  w-full ">
-            <div className=" border-b w-full  bg-white z-10">
-              <div className="mx-auto w-[70%] flex items-center gap-10 pt-4  font-semibold text-[#707070]">
+            <div className=" border-b w-full  bg-white dark:bg-[#27364a] z-10">
+              <div className="mx-auto w-[70%] flex items-center gap-10 pt-4  font-semibold text-[#707070] dark:text-[#cccccc]">
                 <span className="text-app-green border-b-2 pb-3 px-2 border-app-green">
                   Discussions
                 </span>
@@ -74,7 +74,7 @@ export default function Collaborer() {
                                 <span> {message.sender.ministry.name}</span>
                               </p>
                               <p>{message.messages[0].text}</p>
-                              <p className="text-[#707070] text-[10px]">
+                              <p className="text-[#707070] dark:text-[#cccccc] text-[10px]">
                                 {new Date(
                                   message.messages[0].createdAt
                                 ).toLocaleString()}

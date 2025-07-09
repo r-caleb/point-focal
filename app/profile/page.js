@@ -85,8 +85,10 @@ export default function Profile() {
   console.log(errors);
 
   return (
-    <div className="bg-white p-4">
-      <h5 className="font-semibold text-[#6c6c6c] text-lg p-2">Mon compte</h5>
+    <div className="bg-white dark:bg-[#27364a] p-4">
+      <h5 className="font-semibold text-[#6c6c6c] dark:text-[#cccccc] text-lg p-2">
+        Mon compte
+      </h5>
       <p className="text-[13px] p-2">
         Mettre à jour les informations de mon compte utilisateur
       </p>
@@ -117,13 +119,13 @@ export default function Profile() {
           customClass={"w-full"}
           doOnInput={(text) => setInput({ ...input, middlename: text })}
         />
-        <div className="flex items-center w-full bg-app-filter-blue border border-transparent rounded-md min-w-[300px] pl-5 transiton-all duration-500 ease-out hover:border-app-blue focus-within:border-app-blue focus-within:shadow-[0_0_0_1px_#348206]">
+        <div className="flex items-center w-full bg-app-filter-blue border border-transparent dark:border-[#cccccc] rounded-md min-w-[300px] pl-5 transiton-all duration-500 ease-out hover:border-app-blue focus-within:border-app-blue focus-within:shadow-[0_0_0_1px_#348206]">
           <FiUser size={12} color="#707070" />
           <select
             onChange={(e) => setInput({ ...input, gender: e.target.value })}
             value={input?.gender}
             className={
-              "w-full h-full p-2 outline-none rounded-full bg-transparent text-[15px] font-medium text-app-dark"
+              "w-full h-full p-2 outline-none rounded-full bg-transparent text-[15px] font-medium text-app-dark dark:text-[#cccccc] "
             }
           >
             <option value="Homme">Homme</option>

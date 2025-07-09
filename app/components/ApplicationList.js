@@ -121,7 +121,9 @@ export const ApplicationList = ({
   return (
     <div className="">
       <div className="flex justify-between items-center w-full">
-        <h2 className="text-lg font-bold mb-4">Liste des applications</h2>{" "}
+        <h2 className="text-lg font-bold mb-4 dark:text-[#cccccc]">
+          Liste des applications
+        </h2>{" "}
         {!showForm && (
           <p
             onClick={() => setShow(true)}
@@ -135,8 +137,8 @@ export const ApplicationList = ({
         <AppTableSkeleton />
       ) : (
         <div className="max-md:overflow-scroll">
-          <table className="min-w-full bg-white border">
-            <thead className=" text-md">
+          <table className="min-w-full bg-white dark:bg-[#27364a] border">
+            <thead className=" text-md dark:text-[#cccccc]">
               <tr>
                 <th className="border px-4 py-2">NOM</th>
                 <th className="border px-4 py-2">TYPE</th>
@@ -144,7 +146,7 @@ export const ApplicationList = ({
                 <th className="border px-4 py-2">ACTIONS</th>
               </tr>
             </thead>
-            <tbody className="text-[15px]">
+            <tbody className="text-[15px] dark:text-[#cccccc]">
               {currentApps?.map((app) => (
                 <tr key={app._id}>
                   <td className="border px-4 py-2">{app.name}</td>

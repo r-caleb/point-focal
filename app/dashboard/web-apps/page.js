@@ -87,10 +87,10 @@ export default function Apps() {
   );
 
   return (
-    <section className="flex bg-[#f9f9f9] pb-2 text-app-dark">
+    <section className="flex bg-[#f9f9f9] dark:bg-[#1E293B] pb-2 text-app-dark h-screen">
       <div className="flex flex-col gap-2 w-full">
-        <div className="bg-white text-sm w-full p-2.5 flex  items-center justify-between border border-b">
-          <div className="flex items-center gap-2">
+        <div className="bg-white dark:bg-[#27364a] text-sm w-full p-2.5 flex  items-center justify-between border border-b">
+          <div className="flex items-center gap-2 dark:text-[#cccccc]">
             <div className="bg-app-filter-blue rounded-lg p-1">
               <MdHome size={15} className="text-app-blue" />
             </div>

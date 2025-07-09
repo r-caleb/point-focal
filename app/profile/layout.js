@@ -113,12 +113,12 @@ export default function DashLayout({ children }) {
   return (
     <>
       <DashBoardHeader />
-      <div className="bg-[#f9f9f9] p-1 text-sm text-app-dark">
+      <div className="bg-[#f9f9f9] dark:bg-[#1E293B] p-1 text-sm text-app-dark dark:text-[#cccccc] h-screen">
         <div className="flex w-full p-2 gap-2 max-md:flex-col">
           {!user ? (
             <SkeletonUserDetails />
           ) : (
-            <div className="bg-white md:fixed p-4 flex flex-col rounded-md w-[350px] max-sm:w-full">
+            <div className="bg-white dark:bg-[#27364a] md:fixed p-4 flex flex-col rounded-md w-[350px] max-sm:w-full">
               <div className="flex items-center  my-2 w-full gap-4">
                 <form className="flex flex-col items-center">
                   <input
@@ -182,13 +182,17 @@ export default function DashLayout({ children }) {
                 <p className="text-[13px]  font-medium py-2">DETAILS</p>
                 <div className="flex items-start gap-20 pb-2 max-md:flex-col max-md:gap-2">
                   <div className="max-md:border-b max-md:w-full max-md:pb-2 max-md:flex">
-                    <p className="text-app-dark text-[15px]">Prénom :</p>
+                    <p className="text-app-dark dark:text-[#cccccc] text-[15px]">
+                      Prénom :
+                    </p>
                     <p className=" font-medium max-md:ml-2 ">
                       {user ? user?.firstname : "---"}
                     </p>
                   </div>
                   <div className="max-md:flex">
-                    <p className="text-app-dark text-[15px]">Nom :</p>
+                    <p className="text-app-dark dark:text-[#cccccc] text-[15px]">
+                      Nom :
+                    </p>
                     <p className=" font-medium max-md:ml-2">
                       {" "}
                       {user ? user?.lastname : "---"}
@@ -198,13 +202,17 @@ export default function DashLayout({ children }) {
                 <hr />
                 <div className="flex items-start gap-20 py-2 max-md:flex-col max-md:gap-2 ">
                   <div className="max-md:border-b max-md:w-full max-md:pb-2 max-md:flex">
-                    <p className="text-app-dark text-[15px] ">Postnom :</p>
+                    <p className="text-app-dark dark:text-[#cccccc] text-[15px] ">
+                      Postnom :
+                    </p>
                     <p className=" font-medium max-md:ml-2 ">
                       {user ? user?.middlename : "---"}
                     </p>
                   </div>
                   <div className="max-md:flex">
-                    <p className="text-app-dark text-[15px]">Genre :</p>
+                    <p className="text-app-dark dark:text-[#cccccc] text-[15px]">
+                      Genre :
+                    </p>
                     <p className=" font-medium max-md:ml-2">
                       {user ? user?.gender : "---"}
                     </p>
@@ -212,7 +220,7 @@ export default function DashLayout({ children }) {
                 </div>
                 <hr />
                 <div className="flex items-center py-2">
-                  <p className="text-app-dark text-[15px] pr-5">
+                  <p className="text-app-dark dark:text-[#cccccc] text-[15px] pr-5">
                     Numéro de Téléphone :
                   </p>
                   <p className=" font-medium ml-2">
@@ -221,7 +229,9 @@ export default function DashLayout({ children }) {
                 </div>
                 <hr />
                 <div className="flex items-center py-2">
-                  <p className="text-app-dark text-[15px]">Email :</p>
+                  <p className="text-app-dark dark:text-[#cccccc] text-[15px]">
+                    Email :
+                  </p>
                   <p className=" font-medium ml-2">
                     {user ? user?.email : "---"}
                   </p>
@@ -229,7 +239,7 @@ export default function DashLayout({ children }) {
 
                 <hr />
                 <div className="flex items-center py-2">
-                  <p className="text-app-dark text-[15px]">
+                  <p className="text-app-dark dark:text-[#cccccc] text-[15px]">
                     Adresse (lieu de travail) :
                   </p>
                   <p className=" font-medium ml-2 ">

@@ -40,7 +40,7 @@ export default function SideBar({ sidebar, handleToggleSidebar }) {
         }`}
       ></div>
       <nav
-        className={`border-r text-app-dark-green overflow-hidden w-[12.5rem] max-md:w-[18rem] bg-white  fixed max-md:top-0  h-screen z-[45]
+        className={`border-r text-app-dark-green overflow-hidden w-[12.5rem] max-md:w-[18rem] bg-white dark:bg-[#1E293B] dark:text-[#cccccc]  fixed max-md:top-0  h-screen z-[45]
                     ${
                       sidebar
                         ? "max-md:flex-col transition ease-in duration-300"
@@ -89,12 +89,12 @@ export default function SideBar({ sidebar, handleToggleSidebar }) {
                 <FiUser size={35} className="text-[#b8b8b8]" />
               )}
             </div>
-            <p className="text-[15px] font-medium text-app-dark">
+            <p className="text-[15px] font-medium text-app-dark dark:text-[#cccccc]">
               {user ? user?.firstname : "---"}
               <span> {user?.lastname} </span>
               <span> {user?.middlename} </span>
             </p>
-            <p className="text-[14px] text-app-dark border border-[#E3E3F0] px-7 py-1 rounded-sm">
+            <p className="text-[14px] text-app-dark dark:text-[#cccccc] border border-[#E3E3F0] px-7 py-1 rounded-sm">
               {user?.role == "admin"
                 ? "Administrateur"
                 : user?.role == "cabinet"
@@ -103,7 +103,7 @@ export default function SideBar({ sidebar, handleToggleSidebar }) {
             </p>
           </div>
         )}
-        <ul className="text-app-dark font-medium flex flex-col">
+        <ul className="text-app-dark  font-medium flex flex-col">
           {user?.role == "admin" && (
             <li
               className={
@@ -119,10 +119,12 @@ export default function SideBar({ sidebar, handleToggleSidebar }) {
                   className={
                     pathname === "/dashboard"
                       ? "text-white mx-1 "
-                      : "text-[#a3a3a3] mx-1"
+                      : "text-[#a3a3a3] dark:text-[#cccccc] mx-1"
                   }
                 />
-                <span className="text-[15px]">Dashboard</span>
+                <span className="text-[15px] dark:text-[#cccccc]">
+                  Dashboard
+                </span>
               </Link>
             </li>
           )}
@@ -141,10 +143,12 @@ export default function SideBar({ sidebar, handleToggleSidebar }) {
                   className={
                     pathname === "/dashboard/ministere"
                       ? "text-white mx-1 "
-                      : "text-[#a3a3a3] mx-1"
+                      : "text-[#a3a3a3] dark:text-[#cccccc] mx-1"
                   }
                 />
-                <span className="text-[15px]">Ministères</span>
+                <span className="text-[15px] dark:text-[#cccccc]">
+                  Ministères
+                </span>
               </Link>
             </li>
           )}{" "}
@@ -164,10 +168,12 @@ export default function SideBar({ sidebar, handleToggleSidebar }) {
                   pathname === "/dashboard/web-apps" ||
                   pathname === `/dashboard/web-apps/${id}`
                     ? "text-white mx-1 "
-                    : "text-[#a3a3a3] mx-1"
+                    : "text-[#a3a3a3] dark:text-[#cccccc] mx-1"
                 }
               />
-              <span className="text-[15px]">Applications</span>
+              <span className="text-[15px] dark:text-[#cccccc]">
+                Applications
+              </span>
             </Link>
           </li>
           <li
@@ -186,10 +192,12 @@ export default function SideBar({ sidebar, handleToggleSidebar }) {
                   pathname === "/dashboard/collaborer" ||
                   pathname === `/dashboard/collaborer/${id}`
                     ? "text-white mx-1 "
-                    : "text-[#a3a3a3] mx-1"
+                    : "text-[#a3a3a3] dark:text-[#cccccc] mx-1"
                 }
               />
-              <span className="text-[15px]">Collaborer</span>
+              <span className="text-[15px] dark:text-[#cccccc]">
+                Collaborer
+              </span>
             </Link>
           </li>
         </ul>

@@ -96,10 +96,10 @@ export default function Collaborer() {
   };
 
   return (
-    <section className="bg-[#f9f9f9] text-[13px]">
+    <section className="bg-[#f9f9f9] dark:bg-[#1E293B]  text-[13px]">
       <div className="rounded-2xl max-md:px-0 gap-2">
         <div className="p-2 w-full min-h-[375px]">
-          <div className="flex flex-col justify-between rounded-xl border-4 h-screen">
+          <div className="flex flex-col justify-between rounded-xl border-4 min-h-screen">
             {/* Header */}
             <div className="bg-app-dark-blue w-full rounded-t-xl p-1.5 flex items-center">
               <div className="p-1.5 flex items-center md:justify-between font-medium mx-1.5 w-full">
@@ -135,7 +135,7 @@ export default function Collaborer() {
             {/* Messages */}
             <div
               ref={scrollRef}
-              className="overflow-y-scroll min-h-[395px] flex flex-col items-center px-4 text-black "
+              className="overflow-y-scroll min-h-[395px] flex flex-col items-center px-4 text-black dark:text-[#cccccc]"
             >
               {messageInfo?.messages?.map((message) => (
                 <div
@@ -146,7 +146,7 @@ export default function Collaborer() {
                       : "flex justify-end items-center gap-2 text-[13px] w-full"
                   }
                 >
-                  <div className="flex flex-col items-start my-1 min-w-[200px] text-[13px] gap-1 p-1.5 rounded-lg shadow-xl bg-white">
+                  <div className="flex flex-col items-start my-1 min-w-[200px] text-[13px] gap-1 p-1.5 rounded-lg shadow-xl bg-white dark:bg-[#27364a]">
                     <p>{message.text}</p>
                     {message.files && message.files.length > 0 && (
                       <div className="flex flex-col gap-1 mt-1">
@@ -211,7 +211,7 @@ export default function Collaborer() {
                       </div>
                     )}
 
-                    <p className="text-[#707070] text-[10px] self-end">
+                    <p className="text-[#707070] dark:text-[#cccccc] text-[10px] self-end">
                       {formatDate(message.createdAt)}
                     </p>
                   </div>
@@ -267,7 +267,7 @@ export default function Collaborer() {
               <div className="container px-4 mx-auto w-full">
                 <textarea
                   rows="4"
-                  className="w-full rounded-lg p-1 focus:outline-none text-base"
+                  className="w-full dark:bg-[#1E293B] rounded-lg p-1 focus:outline-none text-base"
                   value={text}
                   onChange={handleChange}
                 ></textarea>

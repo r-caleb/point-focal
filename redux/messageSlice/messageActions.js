@@ -39,7 +39,7 @@ export const getMessages = createAsyncThunk(
         },
       };
       const { data } = await request(`message/received/grouped`, config);
-      console.log("dd", data);
+      console.log("data", data);
       return data;
     } catch (error) {
       // return custom error message from API if any
@@ -66,7 +66,7 @@ export const getAllOnePersonMessages = createAsyncThunk(
         },
       };
       const { data } = await request(`message/${id}`, config);
-      console.log("dd", data);
+      console.log(data);
       return data;
     } catch (error) {
       // return custom error message from API if any
